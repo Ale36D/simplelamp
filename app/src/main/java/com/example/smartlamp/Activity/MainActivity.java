@@ -1,6 +1,7 @@
 package com.example.smartlamp.Activity;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -22,6 +23,8 @@ import com.example.smartlamp.Adapter.ButtonFunctionViewAdapter;
 import com.example.smartlamp.MqttMessageHandler.MessageJson;
 import com.example.smartlamp.MqttMessageHandler.MqttMessageHandler;
 import com.example.smartlamp.MqttMessageHandler.MqttPushMessageHandler;
+import com.example.smartlamp.MyDialog.MyDialog;
+import com.example.smartlamp.MyDialog.MydialogInterface;
 import com.example.smartlamp.R;
 import com.example.smartlamp.RcListInfo.ButtonFunctionViewInfo.ButtonFunctionViewInfo;
 import com.example.smartlamp.ToastLogShow.ToastLogShow;
@@ -42,7 +45,7 @@ public class MainActivity extends AppCompatActivity{
     RecyclerView buttonFunctionRcView;
 
     public Button reConnectBtn, homeBtn, customBtn, restartBtn, lockBtn;
-    public TextView tempValueTv, humiValueTv, lightValueTv;
+    public TextView tempValueTv, humiValueTv, lightValueTv, connectStatsTv, connectDevNameTv;
     MqttClient  client = new MqttClient(MainActivity.clientUrl, MainActivity.clientID, new MemoryPersistence());
 
     MqttConnectOptions conOpt = new MqttConnectOptions();
@@ -75,6 +78,10 @@ public class MainActivity extends AppCompatActivity{
         });
         this.customBtn.setOnClickListener(view -> {
             pushMessager.PushMeesage(client, clientID, "custom","Set");
+            final MyDialog dialog = new MyDialog(MainActivity.this, colorValue -> {
+                pushMessager.PushMeesage(client, clientID, colorValue,"SetCustomColor");
+            });
+            dialog.show();
         });
         this.restartBtn.setOnClickListener(view -> {
             pushMessager.PushMeesage(client, clientID, "restart","Set");
@@ -124,7 +131,6 @@ public class MainActivity extends AppCompatActivity{
                     this.humiValueTv.setText(dataArray[1] + "%");
                     this.lightValueTv.setText(dataArray[2] + "lux");
                 }
-
             }catch (Exception e){
                 ToastLogShow.showToast(MainActivity.this, e.getMessage());
             }
@@ -144,6 +150,8 @@ public class MainActivity extends AppCompatActivity{
         tempValueTv = findViewById(R.id.tempValueTv);
         humiValueTv = findViewById(R.id.humiValueTv);
         lightValueTv = findViewById(R.id.lightValueTv);
+        connectStatsTv = findViewById(R.id.connectStatsTv);
+        connectDevNameTv = findViewById(R.id.connectStatsTv);
         buttonFunctionRcView = findViewById(R.id.ButtonFunctionRcView);
         items.add(new ButtonFunctionViewInfo("冷光源", "打开/关闭", "btnlamp", ()->{
             pushMessager.PushMeesage(client, clientID, "cold","Set");}));

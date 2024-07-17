@@ -196,8 +196,53 @@
                 app:layout_constraintTop_toTopOf="@+id/textView" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+    <LinearLayout
+        android:layout_margin="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/devControlFream"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textAlignment="textEnd"
+            android:layout_weight="0.25"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="连接状态:"/>
+        <TextView
+            android:id="@+id/connectStatsTv"
+            android:textAlignment="center"
+            android:layout_weight="0.25"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="连接成功"/>
+        <TextView
+            android:textAlignment="textEnd"
+            android:layout_weight="0.25"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="连接目标:"/>
+        <TextView
+            android:id="@+id/connectDevNameTv"
+            android:textAlignment="center"
+            android:layout_weight="0.25"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DevName"/>
+
+
+    </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/devControlFream"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
