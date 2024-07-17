@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.MainActivity">
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30sp"
+                android:layout_marginTop="30sp"
+                android:text="植物灯🥳"
+                android:textColor="@color/black"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/lottieFramelayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/titlelight" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/PlantEnvironmentFrameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20sp"
+                android:background="@drawable/card_bg"
+                android:orientation="vertical"
+                android:padding="10sp"
+                app:layout_constraintTop_toBottomOf="@+id/lottieFramelayout"
+                tools:layout_editor_absoluteX="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10sp"
+                    android:layout_marginTop="10sp"
+                    android:layout_marginBottom="10sp"
+                    android:text="植物环境"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10sp"
+                        android:layout_weight="0.333"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="48sp"
+                            android:layout_height="48sp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/temp" />
+
+                        <TextView
+                            android:id="@+id/tempValueTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10sp"
+                            android:text="15°"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10sp"
+                        android:layout_weight="0.333"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="48sp"
+                            android:layout_height="48sp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/humi" />
+
+                        <TextView
+                            android:id="@+id/humiValueTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10sp"
+                            android:text="15°"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:lottie_autoPlay="true"
+                            app:lottie_loop="true"
+                            app:lottie_rawRes="@raw/src_bottom"
+                            tools:ignore="MissingConstraints" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10sp"
+                        android:layout_weight="0.333"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="48sp"
+                            android:layout_height="48sp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/light" />
+
+                        <TextView
+                            android:id="@+id/lightValueTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10sp"
+                            android:text="15°"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ButtonFunctionFramelayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10sp"
+                android:orientation="vertical"
+                android:padding="10sp"
+                app:layout_constraintTop_toBottomOf="@+id/PlantEnvironmentFrameLayout">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/ButtonFunctionRcView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="?selectableItemBackground"
+                    android:padding="5sp"
+                    tools:ignore="MissingConstraints" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/reConnectBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20sp"
+                android:background="@drawable/button_bg_item"
+                android:foreground="?selectableItemBackground"
+                android:text="连接"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20sp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:padding="5sp"
+            android:gravity="center"
+            android:layout_weight="0.25"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/homeBtn"
+                android:background="@drawable/button_bg_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:text="主页"/>
+        </LinearLayout>
+        <LinearLayout
+            android:padding="5sp"
+            android:gravity="center"
+            android:layout_weight="0.25"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/customBtn"
+                android:background="@drawable/button_bg_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:text="自定义"/>
+        </LinearLayout>
+        <LinearLayout
+            android:padding="5sp"
+            android:gravity="center"
+            android:layout_weight="0.25"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/restartBtn"
+                android:background="@drawable/button_bg_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:text="重启"/>
+        </LinearLayout>
+        <LinearLayout
+            android:padding="5sp"
+            android:gravity="center"
+            android:layout_weight="0.25"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/lockBtn"
+                android:background="@drawable/button_bg_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:text="待机"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
